@@ -23,9 +23,8 @@ class ApiClient extends GetConnect {
   Duration timeout = API_TIMEOUT_DURATION;
 
   ApiClient(this.timeout) : super(timeout: timeout);
-  //https://jaramarket.kenjeffy.com/api/jaram
-  var basePath = 'https://jaramarket.kenjeffy.com/api/jaram';
-  var baseUrl = 'https://jaramarket.kenjeffy.com/api/jaram';
+  var basePath = 'https://jaramarket-backend.onrender.com/api/jaram';
+  var baseUrl = 'https://jaramarket-backend.onrender.com/api/jaram';
   static const int maxRetries = 3;
   static const Duration retryDelay = Duration(seconds: 2);
 
@@ -341,7 +340,7 @@ class ApiClient extends GetConnect {
       var response = await http.post(
         headers: header,
         Uri.parse(
-          'https://jaramarket.kenjeffy.com/api/jaram/register?cache-buster=${fn_generateCacheBuster()}',
+          '$baseUrl/register?cache-buster=${fn_generateCacheBuster()}',
         ),
         body: jsonEncode({
           'firstname': firstName,
